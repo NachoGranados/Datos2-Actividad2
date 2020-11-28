@@ -1,8 +1,6 @@
 import './App.css';
-import Alert from './Alert';
 import StarWarsPeople from './StarWarsPeople';
 import React from 'react'
-import logo from './logo.svg';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,8 +20,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          
-          <div>{this.state.counter}</div>
+          <div>Star Wars Characters</div>
           <StarWarsPeople/>
         </header>
       </div>

@@ -11,10 +11,21 @@ export default class StarWarsCharacter extends React.Component {
 
     render() {
         return (
-        <div>
-            
-            {this.characterData}
-        </div>
+        
+            <tr>
+
+                <td>{this.characterData.name}</td>
+                <td>{this.characterData.height}</td>
+                <td>{this.characterData.mass}</td>
+                <td>{this.characterData.hair_color}</td>
+                <td>{this.characterData.skin_color}</td>
+                <td>{this.characterData.eye_color}</td>
+                <td>{this.characterData.birth_year}</td>
+                <td>{this.characterData.gender}</td>
+
+            </tr>
+       
+        
 
  
 
