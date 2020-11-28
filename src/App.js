@@ -1,8 +1,7 @@
 import './App.css';
-
-import Alert from './Alert';
 import React from 'react'
 import logo from './logo.svg';
+import StarWarsPeople from './StarWarsPeople';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -37,7 +36,9 @@ export default class App extends React.Component {
             Learn React
           </a>
           <div>{this.state.counter}</div>
-          <Alert count={this.state.counter}></Alert>
+
+          <StarWarsPeople/>
+
         </header>
       </div>
     );

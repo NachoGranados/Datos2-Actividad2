@@ -1,49 +1,46 @@
 import './App.css';
 
 import React from 'react'
+import StarWarsCharacter from './StarWarsCharacter';
 
 export default class StarWarsPeople extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {data : []};
-        this.getData();
-    }
-    
-    getData() {
-        fetch(" https://swapi.dev/api/people/")
-            .then(response => {
-                return response.json();
-            }).then(result => {
-                this.setState({
-                    data : result
-                });
-        }).catch(error => {
-            console.log(error);
-        });
+        this.state = {characters : []};
+        this.loadData = this.loadData.bind(this);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    componentDidMount() {
+        this.loadData();
+    }
 
     render() {
-        return (
-                <div>{this.props.count > 60 ? "Peligro! la cantidad de segundos ha excedido el límte!!!" :
-""}</div>
-    );
+        if (this.state.characters.length === 0) {
+            return <>No data found</>
+        }
+        return( 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Height</th>
+                        <th>Mass</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.characters.map((c, index) => <StarWarsCharacter key = {index} character = {c}/>)}
+                </tbody>      
+            </table>
+        );
     }
+
+    async loadData() {
+        const response = await fetch("https://swapi.dev/api/people/");
+        const parsedResponse = await response.json();
+        this.setState({
+            characters: parsedResponse.results || []
+        })
+    }
+
 }
