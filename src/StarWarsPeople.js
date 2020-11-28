@@ -28,8 +28,17 @@ export default class StarWarsPeople extends React.Component {
                         <th>Mass</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {this.state.characters.map((c, index) => <StarWarsCharacter key = {index} character = {c}/>)}
+                    {this.state.characters.map((c, index) =>
+                    <tr>
+                        <th><StarWarsCharacter characterData = {c.name}/></th> 
+                        <th><StarWarsCharacter characterData = {c.height}/></th> 
+                        <th><StarWarsCharacter characterData = {c.mass}/></th>                    
+                    </tr>
+                    )}
+                       
+                    
                 </tbody>      
             </table>
         );
